@@ -1,6 +1,8 @@
 // ==UserScript==
 // @name         IDOS - Save connection to a Google Calendar
 // @name:cs      IDOS – Uložit spojení do Google Kalendáře
+// @description  Save connection to Google Calendar
+// @description:cs Uloží spojení do Google kalendáře
 // @version      1.0.0
 // @icon         https://idos.idnes.cz/favicon.ico
 // @author       Jan Cermak
