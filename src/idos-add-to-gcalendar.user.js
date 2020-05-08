@@ -22,7 +22,8 @@
     'use strict';
 
     var shareLinkClass = 'add-to-google-calendar';
-    var connectionNotes = ['stanoviště', 'nástupiště', 'nástupiště/kolej', 'kolej'];
+    var connectionNotesWithValues = ['stanoviště', 'nástupiště', 'nástupiště/kolej', 'kolej'];
+    var connectionNotesWithoutValues = ['na znamení', 'vlak zastavuje jen na znamení nebo požádání'];
 
     function appendShareLink(element) {
         var links = element.find('ul.connection-expand__actions');
@@ -123,10 +124,17 @@
     function buildStationNotes(station) {
         var attrs = [];
 
-        connectionNotes.forEach(function(attribute) {
-            var value = station.find('span[title=' + attribute + ']');
+        connectionNotesWithValues.forEach(function(attribute) {
+            var value = station.find('span[title="' + attribute + '"]');
             if (value.length === 1) {
                 attrs.push(attribute + ': ' + value.text());
+            }
+        });
+
+        connectionNotesWithoutValues.forEach(function(attribute) {
+            var value = station.find('span[title="' + attribute + '"]');
+            if (value.length === 1) {
+                attrs.push(attribute);
             }
         });
 
