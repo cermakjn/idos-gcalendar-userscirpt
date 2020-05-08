@@ -1,5 +1,7 @@
 # IDOS - Přidat spojení do Google kalendáře
 
+[![Build Status](https://travis-ci.com/cermakjn/idos-gcalendar-userscirpt.svg?branch=master)](https://travis-ci.com/cermakjn/idos-gcalendar-userscirpt)
+
 Userscript pro rozšíření prohlížečů jako je Greasemonkey či Tampermonkey.
 
 Userscript přidá do IDOSu k vyhledanému spojení nové tlačítko "Uložit do Google kalendáře". 
