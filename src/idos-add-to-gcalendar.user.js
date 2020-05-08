@@ -22,6 +22,8 @@
     'use strict';
 
     var shareLinkClass = 'add-to-google-calendar';
+    var connectionNotesWithValues = ['stanoviště', 'nástupiště', 'nástupiště/kolej', 'kolej'];
+    var connectionNotesWithoutValues = ['na znamení', 'vlak zastavuje jen na znamení nebo požádání'];
 
     function appendShareLink(element) {
         var links = element.find('ul.connection-expand__actions');
@@ -65,6 +67,8 @@
                 var connectionStartTime = startTimeSelector.text();
                 var connectionFinishStation = lastStation.find('strong.name').text();
                 var connectionFinishTime = finishTimeSelector.text();
+                var connectionStartNotes = buildStationNotes(firstStation);
+                var connectionFinishNotes = buildStationNotes(lastStation);
 
                 var transportTypeAndLine = connection.find('div.line-title h3 span').text();
 
@@ -87,8 +91,9 @@
                     connectionText += walk.text().trim() + "\r\n\r\n";
                 }
 
-                connectionText += transportTypeAndLine + "\r\n" + connectionStartTime + ' ' + connectionStartStation + "\r\n";
-                connectionText += connectionFinishTime + ' ' + connectionFinishStation + "\r\n\r\n";
+                connectionText += transportTypeAndLine + "\r\n";
+                connectionText += connectionStartTime + ' ' + connectionStartStation + connectionStartNotes + "\r\n";
+                connectionText += connectionFinishTime + ' ' + connectionFinishStation + connectionFinishNotes + "\r\n\r\n";
             });
 
             connectionText += eventSelector.find('div.connection-head p.total').text();
@@ -114,6 +119,30 @@
             window.open(googleCalendarUrl);
         }));
         links.append(saveLink);
+    }
+
+    function buildStationNotes(station) {
+        var attrs = [];
+
+        connectionNotesWithValues.forEach(function(attribute) {
+            var value = station.find('span[title="' + attribute + '"]');
+            if (value.length === 1) {
+                attrs.push(attribute + ': ' + value.text());
+            }
+        });
+
+        connectionNotesWithoutValues.forEach(function(attribute) {
+            var value = station.find('span[title="' + attribute + '"]');
+            if (value.length === 1) {
+                attrs.push(attribute);
+            }
+        });
+
+        if (attrs.length === 0) {
+            return '';
+        }
+
+        return ' (' + attrs.join(', ') + ')';
     }
 
     function createShareLinks() {
