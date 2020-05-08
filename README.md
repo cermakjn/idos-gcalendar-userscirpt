@@ -1,6 +1,6 @@
 # IDOS - Přidat spojení do Google kalendáře
 
-[![Build Status](https://travis-ci.com/cermakjn/idos-gcalendar-userscirpt.svg?branch=master)](https://travis-ci.com/cermakjn/idos-gcalendar-userscirpt)
+[![Build Status](https://travis-ci.com/cermakjn/idos-gcalendar-userscript.svg?branch=master)](https://travis-ci.com/cermakjn/idos-gcalendar-userscript)
 
 ## Instalace
 
@@ -8,17 +8,15 @@ UserScript pro rozšíření [Greasemonkey do Firefoxu](https://addons.mozilla.o
 
  - [OpenUserJS](https://openuserjs.org/scripts/cermakjn/IDOS_%E2%80%93_Ulo%C5%BEit_spojen%C3%AD_do_Google_Kalend%C3%A1%C5%99e)
  - [GreasyFork](https://greasyfork.org/en/scripts/402817-idos-ulo%C5%BEit-spojen%C3%AD-do-google-kalend%C3%A1%C5%99e)
- - [GitHub](https://raw.githubusercontent.com/cermakjn/idos-gcalendar-userscirpt/master/src/idos-add-to-gcalendar.user.js)
+ - [GitHub](https://raw.githubusercontent.com/cermakjn/idos-gcalendar-userscript/master/src/idos-add-to-gcalendar.user.js)
 
 ## Použití
 
-Userscript pro rozšíření prohlížečů jako je Greasemonkey či Tampermonkey.
-
 Userscript přidá do IDOSu k vyhledanému spojení nové tlačítko "Uložit do Google kalendáře". 
-![Nové tlačítko v detailu spojení IDOSu](https://raw.githubusercontent.com/cermakjn/idos-gcalendar-userscirpt/master/docs/images/idos-button.png)
+![Nové tlačítko v detailu spojení IDOSu](https://raw.githubusercontent.com/cermakjn/idos-gcalendar-userscript/master/docs/images/idos-button.png)
 
 Po kliknutí na něj se předvyplní založení nové události v Google kalendáři.
-![Ukázka události v Google kalendáři](https://raw.githubusercontent.com/cermakjn/idos-gcalendar-userscirpt/master/docs/images/google-calendar-event.png)
+![Ukázka události v Google kalendáři](https://raw.githubusercontent.com/cermakjn/idos-gcalendar-userscript/master/docs/images/google-calendar-event.png)
 
 
 ## Známé problémy
