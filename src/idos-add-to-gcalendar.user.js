@@ -22,7 +22,7 @@
     'use strict';
 
     var shareLinkClass = 'add-to-google-calendar';
-    var connectionNotes = ['stanoviště'];
+    var connectionNotes = ['stanoviště', 'nástupiště', 'nástupiště/kolej', 'kolej'];
 
     function appendShareLink(element) {
         var links = element.find('ul.connection-expand__actions');
