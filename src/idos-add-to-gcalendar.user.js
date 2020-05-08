@@ -62,9 +62,9 @@
                 var startTimeSelector = firstStation.find('p.time');
                 var finishTimeSelector = lastStation.find('p.time');
 
-                var connectionStartStation = firstStation.find('strong.name').text();
+                var connectionStartStation = getStationName(firstStation);
                 var connectionStartTime = startTimeSelector.text();
-                var connectionFinishStation = lastStation.find('strong.name').text();
+                var connectionFinishStation = getStationName(lastStation);
                 var connectionFinishTime = finishTimeSelector.text();
 
                 var transportTypeAndLine = connection.find('div.line-title h3 span').text();
@@ -124,6 +124,10 @@
 
     function getCalendarDatetime(date, time) {
         return date + 'T' + time;
+    }
+
+    function getStationName(station) {
+        return station.find('strong.name').text();
     }
 
     function createShareLinks() {
