@@ -22,6 +22,7 @@
     'use strict';
 
     var shareLinkClass = 'add-to-google-calendar';
+    var differentDayClass = 'color-red';
 
     function appendShareLink(element) {
         var links = element.find('ul.connection-expand__actions');
@@ -70,15 +71,16 @@
 
                 if (startStation === null) {
                     startStation = connectionStartStation;
-                    startTime = connectionStartTime.replace(':', '').padStart(4, '0') + '00';
+                    startTime = getCalendarTime(connectionStartTime);
 
-                    if (startTimeSelector.hasClass('color-red')) {
+                    if (startTimeSelector.hasClass(differentDayClass)) {
                         startTimeMoved = true;
                     }
                 }
+
                 finishStation = connectionFinishStation;
-                finishTime = connectionFinishTime.replace(':', '').padStart(4, '0') + '00';
-                if (finishTimeSelector.hasClass('color-red')) {
+                finishTime = getCalendarTime(connectionFinishTime);
+                if (finishTimeSelector.hasClass(differentDayClass)) {
                     finishTimeMoved = true;
                 }
 
@@ -101,7 +103,7 @@
 
             var eventName = startStation + ' - ' + finishStation;
             var eventDetail = connectionText;
-            var eventDates = startDate + 'T' + startTime + '/' + finishDate + 'T' + finishTime;
+            var eventDates = getCalendarDatetime(startDate, startTime) + '/' + getCalendarDatetime(finishDate, finishTime);
             var eventUrl = eventSelector.data('share-url');
 
             // Format: https://github.com/InteractionDesignFoundation/add-event-to-calendar-docs/blob/master/services/google.md
@@ -114,6 +116,14 @@
             window.open(googleCalendarUrl);
         }));
         links.append(saveLink);
+    }
+
+    function getCalendarTime(time) {
+        return time.replace(':', '').padStart(4, '0') + '00';
+    }
+
+    function getCalendarDatetime(date, time) {
+        return date + 'T' + time;
     }
 
     function createShareLinks() {
