@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         IDOS – Uložit spojení do Google Kalendáře
 // @description  Uloží spojení do Google kalendáře
-// @version      1.2.0
-// @icon         https://idos.idnes.cz/favicon.ico
+// @version      1.3.0
+// @icon         https://idos.cz/favicon.ico
 // @author       Jan Cermak
-// @match        https://idos.idnes.cz/*/spojeni/*
+// @match        https://idos.cz/*/spojeni/*
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js
 // @copyright    2022, Jan Cermak (https://jan-cermak.cz)
 // @licence      MIT
